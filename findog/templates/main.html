@@ -1,4 +1,4 @@
-
+{% extends "base.html" %}
 
 {% load static %}
 {% block content %}
@@ -44,10 +44,11 @@
 <body>
 
     <h1 class="title-single">찾아줄개</h1>
-
     {% for item in lostdoglist %}
         <h1> {{item.i_dogid}}</h1>
     {% endfor %}
+
+    <h1><a href="{% url 'main_board' %}">메인보드로가기</a></h1>
 
 
 <section class="portfolio">
@@ -67,7 +68,7 @@
 
           <div class="col-lg-4 col-md-6 portfolio-wrap filter-app">
             <div class="portfolio-item">
-              <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
+              <img src="static/assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="">
               <div class="portfolio-info">
                 <h3>App 1</h3>
                 <div>

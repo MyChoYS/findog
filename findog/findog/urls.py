@@ -19,4 +19,16 @@ from findog import views
 
 urlpatterns = [
     path('', views.base, name='base'),
+    path("main_board", views.main_board, name='main_board'),
+    path('main_board_detail', views.main_board_detail, name='main_board_detail'),
+
+    path('login', views.login, name='login'),
+    path('loginimpl', views.loginimpl, name='loginimpl'),
+    path('login_register', views.login_register, name='login_register'),
+    path('login_registerimpl', views.login_registerimpl, name='login_registerimpl'),
+    path('logout', views.logout, name='logout'),
+    path('androidlogin', views.androidlogin, name='androidlogin'),
+
+
+
 ]

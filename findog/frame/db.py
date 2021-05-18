@@ -11,7 +11,7 @@ class lostdoglistDb(Db) :
         result = cursor.fetchall();
         all = [];
         for i in result :
-            item = lostdoglist(i[0], i[1], i[2], i[3], i[4], i[5], i[6], i[7], i[8], i[9])
+            item = lostdoglist(i[0], i[1], i[2], i[3], i[4], i[5], i[6], i[7], i[8], i[9], i[10])
             all.append(item);
         super().close(conn, cursor);
         return all;
@@ -21,7 +21,7 @@ class lostdoglistDb(Db) :
         cursor = conn.cursor();
         cursor.execute(Sql.selectbyid % i_dogid);
         i = cursor.fetchone()
-        item = lostdoglist(i[0], i[1], i[2], i[3], i[4], i[5], i[6], i[7], i[8], i[9])
+        item = lostdoglist(i[0], i[1], i[2], i[3], i[4], i[5], i[6], i[7], i[8], i[9], i[10])
         super().close(conn, cursor);
         return item;
 
