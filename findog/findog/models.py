@@ -30,3 +30,11 @@ class missingdog(models.Model): #유기견리스트
     explanation = models.TextField()
     img = models.ImageField(blank=True, upload_to="photo_%Y_%m_%d")
     findtime = models.DateTimeField()
+
+class dogcenter(models.Model) : #동물보호센터 현황
+    city = models.CharField(max_length=50)
+    name = models.CharField(max_length=50)
+    cellphone= models.CharField(max_length=50)
+    address = models.CharField(max_length=50)
+    lat = models.FloatField()
+    lon = models.FloatField()
