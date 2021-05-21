@@ -10,7 +10,7 @@
 <p>업로드된 사진의 내용  : {{ upload.content }}</p>
 <p>path :{{ upload.photo.path }}</p>
 <p>url : {{ upload.photo.url }}</p>
-<img src="{{ upload.photo.url }}" width="200" alt="">
+<img src='{{ upload.photo.url }}' width="500" alt="">
 {% else %}
 <h2>업로드하려는 사진파일과 정보를 입력하세요</h2>
 <form method="post"  action="{% url 'upload' %}" enctype="multipart/form-data">
