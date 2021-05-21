@@ -1,10 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+@import url('https://fonts.googleapis.com/css?family=Nanum+Brush+Script&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Noto+Serif+KR:200,300,400,500,600,700,900&display=swap');
+    table, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding-left: 10px;
+            padding-right: 10px;
+            margin-top: 22px;
+
+            margin-bottom: 15px;
+        }
+    table {
+            table-layout: fixed;
+            width: 200%;
+            text-align : auto;
+            }
+    table tbody tr:last-of-type {
+        border-bottom: 2px solid #FFC600;
+}
+
+    .fontsize {
+              font-size: 15px;
+                }
+    .fontsize>a { color: blue;
+                }
+</style>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>동물보호센터</title>
 </head>
 <body>
+     {% for center in doglocation %}
+    <div style="text-align:center" class="col-xs-12 col-md-6">
+            <div id="map" style="width:200%;height:550px;"></div>
+                <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=9232eea87d1d6eb902f1f880831aaf74&libraries=services"></script>
+
+                <script>
+                var geocoder = new kakao.maps.services.Geocoder();
+
+                var callback = function(result, status) {
+                    if (status === kakao.maps.services.Status.OK) {
+                        console.log(result);
+                    }
+                };
+
+                geocoder.addressSearch('{{center.address}}',function(result, status) {
+
+                    // 정상적으로 검색이 완료됐으면
+                     if (status === kakao.maps.services.Status.OK) {
+
+                        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+                        // 결과값으로 받은 위치를 마커로 표시합니다
+                        var marker = new kakao.maps.Marker({
+                            map: map,
+                            position: coords
+                        });
+                        // 인포윈도우로 장소에 대한 설명을 표시합니다
+                        var infowindow = new kakao.maps.InfoWindow({
+                            content: '<div style="width:150px;text-align:center;padding:6px 0;">{{center.name}}</div>'
+                        });
+                        infowindow.open(map, marker);
+
+                        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+                        map.setCenter(coords);
+                    }
+                });
+                    var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+                                    mapOption = {
+                                        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+                                        level: 3 // 지도의 확대 레벨
+                                    };
+                                // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+                                var map = new kakao.maps.Map(mapContainer, mapOption);
+                                ///
+                                </script>
+    </div>
+
+     {% endfor %}
+
+
+
 
 </body>
 </html>
