@@ -131,6 +131,14 @@ def androidlogin(request) :
 
 
 
+#동물보호센터 현재위치 비교
 
+def dogcenter(request) :
+    doglocation = dogcenter.objects.all()
+
+    context = {
+        'doglocation': doglocation
+    }
+    return render(request, 'dogcenter.html', context)
 
 
