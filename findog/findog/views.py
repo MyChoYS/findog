@@ -4,19 +4,23 @@ from rest_framework.parsers import JSONParser
 
 from frame.db import lostdoglistDb
 from frame.login.db import MemberDb
-
-
+from findog.models import dogcenter
+from findog.models import missingdog
+from findog.models import dogbreed
+from findog.models import mydog
+from findog.models import member
+from findog.models import UploadModel
 
 
 def base(request) :
-    lostdoglist = lostdoglistDb().selectall()
+    lostdoglist = missingdog.objects.all()
     context = {
         'lostdoglist' : lostdoglist
     }
     return render(request, 'main.html', context);
 
 def main_board(request) :
-    lostdoglist = lostdoglistDb().selectall()
+    lostdoglist = missingdog.objects.all()
     context = {
         'lostdoglist': lostdoglist
     }
@@ -43,20 +47,21 @@ def login_register(request) :
 
 
 def loginimpl(request) :
-    lostdoglist = lostdoglistDb().selectall()
+    lostdoglist = missingdog.objects.all()
 
     member_id = request.POST['member_id']
     member_pwd = request.POST['member_pwd']
-
+    #review = Academy_review.objects.get(pk=pk)
     try :
-        member = MemberDb().selectid(member_id);
-        if member_pwd == member.member_pwd :
+        #member = MemberDb().selectid(member_id);
+        members = member.objects.get(id=member_id);
+        if member_pwd == members.member_pwd :
             request.session['member_id'] = member_id
-            request.session['member_name'] = member.member_name
+            request.session['member_name'] = members.member_name
             context = {
                 'lostdoglist': lostdoglist,
                 'login' : 'success',
-                'member_name' : member.member_name
+                'member_name' : members.member_name
             };
         else :
             raise Exception
@@ -84,7 +89,9 @@ def login_registerimpl(request) :
         return render(request, 'login_register.html', context);
     else :
         try :
-            MemberDb().insert(member_id, member_name, member_pwd_1, member_home, member_cellphone);
+            #member().insert(member_id, member_name, member_pwd_1, member_home, member_cellphone);
+            members = member(id=member_id, name = member_name, password = member_pwd_1, home = member_home, cellphone = member_cellphone )
+            members.save()
         except :
             context = {
                 'message' : '회원가입 실패'
@@ -117,11 +124,11 @@ def androidlogin(request) :
         member_id = data['member_id']
         member_pwd = data['member_pwd']
 
-        member = MemberDb().selectid(member_id);
-        print(member.member_pwd)
+        members = member.objecs.get(id=member_id);
+        print(members.member_pwd)
         print(member_pwd)
 
-        if member_pwd == member.member_pwd :
+        if member_pwd == members.member_pwd :
             print('성공')
             return JsonResponse("ok", safe=False, json_dumps_params={'ensure_ascii':False})
         else :
@@ -132,12 +139,22 @@ def androidlogin(request) :
 
 
 #동물보호센터 현재위치 비교
-def dogcenter(request) :
+def dogcenters(request) :
     doglocation = dogcenter.objects.all()
 
     context = {
         'doglocation': doglocation
     }
     return render(request, 'dogcenter.html', context)
+
+#파일업로드
+def exam2(request) :
+    context = None
+    if request.method == 'POST' :
+        upload = UploadModel(title = request.POST['title'], content=request.POST['content'], photo=request.FILES['photo'])
+        upload.save()
+        context = {"upload" : upload}
+
+    return render(request, "fileupload.html", context)
 
 

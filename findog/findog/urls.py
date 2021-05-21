@@ -28,8 +28,6 @@ urlpatterns = [
     path('login_registerimpl', views.login_registerimpl, name='login_registerimpl'),
     path('logout', views.logout, name='logout'),
     path('androidlogin', views.androidlogin, name='androidlogin'),
-    path('dogcenter', views.dogcenter, name='androidlogin'),
-
-
-
+    path('dogcenters', views.dogcenters, name='dogcenters'),
+    path("exam2", views.exam2, name='upload'),
 ]

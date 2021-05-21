@@ -38,3 +38,9 @@ class dogcenter(models.Model) : #동물보호센터 현황
     address = models.CharField(max_length=50)
     lat = models.FloatField()
     lon = models.FloatField()
+
+#이미지 업로드 테스트용
+class UploadModel(models.Model):
+    title = models.CharField(max_length=100)
+    content = models.TextField()
+    photo = models.ImageField(blank=True, upload_to="photo_%Y_%m_%d") #폴더 생성만, 이미지명은 따로 찾아야함
