@@ -10,6 +10,8 @@ class member(models.Model): #회원관리
     name = models.CharField(max_length=50)
     home = models.TextField()
     cellphone = models.CharField(max_length=50)
+    delete = models.BooleanField(default=False)#탈퇴여부
+    #탈퇴이유
 
 class mydog(models.Model):
     member_id = models.ForeignKey(member,on_delete=models.CASCADE)
@@ -18,6 +20,7 @@ class mydog(models.Model):
     dogname = models.CharField(max_length=50)
     dogage = models.IntegerField()
     dogsex = models.CharField(max_length=50)
+    delete = models.BooleanField(default=False)   #삭제여부
 
 class missingdog(models.Model): #유기견리스트
     member_id = models.ForeignKey(member, on_delete=models.CASCADE)
@@ -30,6 +33,8 @@ class missingdog(models.Model): #유기견리스트
     explanation = models.TextField()
     img = models.ImageField(blank=True, upload_to="photo_%Y_%m_%d")
     findtime = models.CharField(max_length=50)
+    delete = models.BooleanField(default=False)#삭제여부
+
 
 class dogcenter(models.Model) : #동물보호센터 현황
     city = models.CharField(max_length=50)
