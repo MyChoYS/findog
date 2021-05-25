@@ -27,7 +27,7 @@ def main_board(request) :
     return render(request, 'main_board.html', context);
 
 def main_board_detail(request) :
-    i_dogid = request.GET['i_dogid']
+    i_dogid = request.GET['i_id']
     item = missingdog.objects.get(id=int(i_dogid))
     context = {
        'item' : item
