@@ -24,12 +24,12 @@ class missingdog(models.Model): #유기견리스트
     dogbreed = models.ForeignKey(dogbreed,on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     findplace = models.TextField()
-    lat = models.FloatField()
-    lon = models.FloatField()
-    cellphone = models.IntegerField()
+    lat = models.CharField(max_length=50)
+    lon = models.CharField(max_length=50)
+    cellphone = models.CharField(max_length=50)
     explanation = models.TextField()
     img = models.ImageField(blank=True, upload_to="photo_%Y_%m_%d")
-    findtime = models.DateTimeField()
+    findtime = models.CharField(max_length=50)
 
 class dogcenter(models.Model) : #동물보호센터 현황
     city = models.CharField(max_length=50)
