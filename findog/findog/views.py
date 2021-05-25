@@ -28,7 +28,7 @@ def main_board(request) :
 
 def main_board_detail(request) :
     i_dogid = request.GET['i_dogid']
-    item = lostdoglistDb().selectbyid(int(i_dogid))
+    item = missingdog.objects.get(id=int(i_dogid))
     context = {
        'item' : item
     }
