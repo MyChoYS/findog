@@ -15,8 +15,8 @@
 
 
 {% for item in lostdoglist %}
-   <h2><a href="{% url 'main_board_detail' %}?i_dogid={{item.i_dogid}}">{{item.i_title}}</a></h2>
-   <img src="static/image/lostdog/{{item.i_img}}.jpg" width = "400px" height="300px" alt="">
+   <h2><a href="{% url 'main_board_detail' %}?i_id={{item.id}}">{{item.title}}</a></h2>
+   <img src="static/image/lostdog/{{item.img}}.jpg" width = "400px" height="300px" alt="">
 {% endfor %}
 
 

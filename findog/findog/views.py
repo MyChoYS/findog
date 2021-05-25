@@ -35,9 +35,6 @@ def main_board_detail(request) :
     return render(request, 'main_board_detail.html', context);
 
 
-
-
-
 # login 관련
 def login(request) :
     return render(request, 'login.html');
