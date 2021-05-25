@@ -13,7 +13,7 @@ class member(models.Model): #회원관리
     delete = models.BooleanField(default=False)#탈퇴여부
     #탈퇴이유
 
-class mydog(models.Model):
+class mydog(models.Model): #나의개
     member_id = models.ForeignKey(member,on_delete=models.CASCADE)
     dogbreed = models.ForeignKey(dogbreed,on_delete=models.CASCADE)
     dogimage = models.ImageField(blank=True, upload_to="photo_%Y_%m_%d")
