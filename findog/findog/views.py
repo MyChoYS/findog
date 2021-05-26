@@ -10,18 +10,13 @@ from findog.models import dogbreed
 from findog.models import mydog
 from findog.models import member
 from findog.models import UploadModel
-from datetime import datetime
+
 
 def base(request) :
     lostdoglist = missingdog.objects.all()
-    lastdog = lostdoglist.last()
-    now = datetime.now()
-    lostdogcount = lostdoglist.count()
     context = {
-        'lostdoglist' : lostdoglist, 'lastdog' : lastdog, 'now' : now , 'lostdogcount' : lostdogcount
+        'lostdoglist' : lostdoglist
     }
-
-
     return render(request, 'main.html', context);
 
 def main_board(request) :
