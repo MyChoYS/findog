@@ -47,18 +47,18 @@ def loginimpl(request) :
     lostdoglist = missingdog.objects.all()
 
     member_id = request.POST['member_id']
-    member_pwd = request.POST['member_pwd']
+    member_password = request.POST['member_pwd']
     #review = Academy_review.objects.get(pk=pk)
     try :
         #member = MemberDb().selectid(member_id);
         members = member.objects.get(id=member_id);
-        if member_pwd == members.member_pwd :
+        if member_password == members.password :
             request.session['member_id'] = member_id
-            request.session['member_name'] = members.member_name
+            request.session['member_name'] = members.name
             context = {
                 'lostdoglist': lostdoglist,
                 'login' : 'success',
-                'member_name' : members.member_name
+                'member_name' : members.name
             };
         else :
             raise Exception
