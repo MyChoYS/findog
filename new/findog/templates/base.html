@@ -1,0 +1,38 @@
+{% load static %}
+
+<body>
+    <div>
+        <nav>
+            {% if 'member_id' in request.session %}
+                {% if request.session.member_id%}
+                    <li>
+                        <a>{{request.session.member_id}}님, 환영합니다</a>
+                        <a href = "{% url 'logout' %}">로그아웃</a>
+                    </li>
+                {% else %}
+                    <li>
+                        <a href="{% url 'login' %}">로그인</a>
+                    </li>
+                {% endif %}
+            {% else %}
+                <li>
+                    <a href="{% url 'login' %}">로그인</a>
+                </li>
+            {% endif %}
+        </nav>
+    </div>
+
+
+    <div class="contents">
+
+        {% block content %}
+
+        {% endblock %}
+
+    </div>
+
+
+
+
+
+</body>

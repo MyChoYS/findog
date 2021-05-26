@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block content %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+</head>
+
+<h1> 유기견 게시판 </h1>
+
+{% for item in lostdoglist %}
+   <h2><a href="{% url 'protectboard_detail' %}?i_id={{item.id}}">{{item.title}}</a></h2>
+   <img src="static/image/lostdog/{{item.img}}.jpg" width = "400px" height="300px" alt="">
+{% endfor %}
+
+
+</html>
+
+{% endblock %}
+
+
+
+
