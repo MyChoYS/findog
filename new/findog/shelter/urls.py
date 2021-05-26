@@ -18,6 +18,6 @@ from django.urls import path
 from shelter import views
 
 urlpatterns = [
-    path('shelter', views.shelter, name='shelter'),
+    path('dogcenter', views.dogcenter, name='dogcenter'),
 
 ]

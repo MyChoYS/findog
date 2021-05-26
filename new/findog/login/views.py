@@ -66,7 +66,7 @@ def login_registerimpl(request) :
         };
         request.session['member_id'] = member_id
         request.session['member_name'] = member_name
-        return render(request, 'main_board_detail.html', context)
+        return render(request, 'main/main.html', context)
 
 
 
