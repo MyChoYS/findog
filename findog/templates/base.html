@@ -1,34 +1,4 @@
 {% load static %}
-<script>
-window.onload = function () {
-    var dataPoints = [
-			    { x : new Date(2017,6,24) , y: {{ lostdogcount }}},
-			    { y: 414 , x: new Date(2017,6,25)},
-			    { y: 520, x: new Date(2017,6,26)  ,indexLabel: "\u2191 highest",markerColor: "red", markerType: "triangle" },
-			    { y: 460 , x: new Date(2017,6,27) },
-			    { y: 450  , x: new Date(2017,6,28)},
-			    { y: 500 , x: new Date(2017,6,29)},
-			    { y: 410, x: new Date(2017,6,30) , indexLabel: "\u2193 lowest",markerColor: "DarkSlateGrey", markerType: "cross" },
-
-	];
-    var chart = new CanvasJS.Chart("chartContainer", {
-	    animationEnabled: true,
-	    theme: "light2",
-	    title:{
-		    text: "금주 유기견 현황"
-	    },
-	    data: [{
-		    type: "line",
-      	    indexLabelFontSize: 16,
-		    dataPoints: dataPoints,
-	    }]
-    });
-    chart.render();
-}
-
-</script>
-
-
 
 <body>
     <div>
@@ -51,10 +21,6 @@ window.onload = function () {
             {% endif %}
         </nav>
     </div>
-<div id="chartContainer" style="height: 370px; width: 700px;"></div>
-<!-- <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script> -->
-<script src="/static/canvasjs.min.js"></script>
-
 
 
     <div class="contents">
