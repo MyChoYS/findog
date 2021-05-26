@@ -19,5 +19,6 @@ from missing import views
 
 urlpatterns = [
     path('missingboard', views.missingboard, name='missingboard'),
+    path('missingboard_detail', views.missingboard_detail, name='missingboard_detail'),
 
 ]

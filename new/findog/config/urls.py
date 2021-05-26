@@ -20,9 +20,9 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('findog.urls')),
     path('', include('login.urls')),
-    path('', include('missing.urls')),
+    path('', include('losting.urls')),
     path('', include('search.urls')),
     path('', include('shelter.urls')),
     path('', include('main.urls')),
-    path('', include('protect.urls')),
+    path('', include('missing.urls')),
 ]

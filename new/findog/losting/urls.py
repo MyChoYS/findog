@@ -15,10 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from protect import views
+from losting import views
 
 urlpatterns = [
-    path('protectboard', views.protectboard, name='protectboard'),
-    path('protectboard_detail', views.protectboard_detail, name='protectboard_detail'),
+    path('lostingboard', views.lostingboard, name='lostingboard'),
 
 ]
