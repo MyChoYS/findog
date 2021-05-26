@@ -17,6 +17,8 @@ from django.contrib import admin
 from django.urls import path
 from findog import views
 from config import settings
+from django.conf.urls.static import static
+
 urlpatterns = [
     path('', views.base, name='base'),
     path("main_board", views.main_board, name='main_board'),
