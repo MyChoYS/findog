@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% load static %}
+{% block content %}
+
+
+
+<!DOCTYPE html>
+
+
+<head>
+    <meta charset="UTF-8">
+    <title>유기견 게시판</title>
+</head>
+
+
+
+
+<h1>{{item.title}}</h1>
+<h2>위도 : {{item.lat}}  경도 : {{item.Ion}}</h2>
+<h2>발견장소 : {{item.findplace}}</h2>
+<h2>발견시간 : {{item.findtime}}</h2>
+<img src="static/image/lostdog/{{item.img}}.jpg" width = "400px" height="300px" alt="">
+<h2>견종 : {{item.dogbreed_id}}</h2>
+<h2>{{item.explanation}}</h2>
+
+{% endblock %}
+
+
