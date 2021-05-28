@@ -9,7 +9,7 @@ from findog.models import missingdog
 from findog.models import dogbreed
 from findog.models import mydog
 from findog.models import member
-from findog.models import UploadModel
+#from findog.models import UploadModel
 from datetime import datetime
 
 def base(request) :
@@ -152,11 +152,15 @@ def dogcenters(request) :
 #파일업로드
 def exam2(request) :
     context = None
+    print(1)
     if request.method == 'POST' :
-        upload = UploadModel(title = request.POST['title'], content=request.POST['content'], photo=request.FILES['photo'])
+        print(2)
+        upload = missingdog(member_id_id = request.session['member_id'],dogbreed_id = 'Shih-Tzu',title = request.POST['title'], findplace = request.POST['findplace'],
+                            cellphone = request.POST['cellphone'],explanation=request.POST['content'], img = request.FILES['photo'],
+                            findtime = datetime.now())
         upload.save()
         context = {"upload" : upload,}
-
+    print(3)
     return render(request, "fileupload.html", context)
 
 

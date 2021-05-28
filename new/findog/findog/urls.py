@@ -16,11 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from findog import views
+from config import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path("main_board", views.main_board, name='main_board'),
     path('main_board_detail', views.main_board_detail, name='main_board_detail'),
-
     path('dogcenters', views.dogcenters, name='dogcenters'),
     path("exam2", views.exam2, name='upload'),
-]
+]  + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -51,10 +51,11 @@ def dogcenters(request) :
 def exam2(request) :
     context = None
     if request.method == 'POST' :
-        upload = UploadModel(title = request.POST['title'], content=request.POST['content'], photo=request.FILES['photo'])
+        upload = missingdog(member_id_id = request.session['member_id'],title = request.POST['title'], explanation=request.POST['content'], img=request.FILES['photo'],
+                            cellphone = request.POST['cellphone'], findplace = request.POST['findplace'],
+                            findtime = datetime.now())
         upload.save()
-        context = {"upload" : upload}
+        context = {"upload" : upload,}
 
     return render(request, "fileupload.html", context)
-
 

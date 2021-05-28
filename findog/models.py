@@ -27,8 +27,6 @@ class missingdog(models.Model): #유기견리스트
     dogbreed = models.ForeignKey(dogbreed,on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     findplace = models.TextField()
-    lat = models.CharField(max_length=50)
-    lon = models.CharField(max_length=50)
     cellphone = models.CharField(max_length=50)
     explanation = models.TextField()
     img = models.ImageField(blank=True, upload_to="photo_%Y_%m_%d")
@@ -44,8 +42,9 @@ class dogcenter(models.Model) : #동물보호센터 현황
     lat = models.FloatField()
     lon = models.FloatField()
 
-#이미지 업로드 테스트용
+'''#이미지 업로드 테스트용
 class UploadModel(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
     photo = models.ImageField(blank=True, upload_to="photo_%Y_%m_%d") #폴더 생성만, 이미지명은 따로 찾아야함
+'''

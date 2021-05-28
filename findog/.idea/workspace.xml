@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c9f7e550-1f2b-4bf2-b8cd-f6b564dfbcb6" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/fileupload.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/fileupload.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/main_board_detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/main_board_detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../new/findog/findog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/../new/findog/findog/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../new/findog/findog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/../new/findog/findog/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../new/findog/templates/fileupload.html" beforeDir="false" afterPath="$PROJECT_DIR$/../new/findog/templates/fileupload.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
