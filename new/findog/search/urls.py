@@ -19,5 +19,7 @@ from search import views
 
 urlpatterns = [
     path('search', views.search, name='search'),
+    path('selectdogs', views.selectdogs, name='selectdogs'),
+
 
 ]

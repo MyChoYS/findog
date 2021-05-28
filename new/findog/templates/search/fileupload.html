@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Document</title>
+    <style>
+        div{position: relative;}
+        img:nth-child(1){width: 1000px ; height: 900px;}
+        img:nth-child(2){width: 400px ; height: 400px; border: 8px solid red; position: absolute; top: 70px; right: 650px;}
+        img:nth-child(3){width: 300px ; height: 300px; border: 8px solid orange; position: absolute; top: 170px; right: 200px;}
+        img:nth-child(4){width: 250px ; height: 250px; border: 8px solid green; position: absolute; bottom: 70px; right: 800px;}
+        img:nth-child(5){width: 220px ; height: 220px; border: 8px solid blue; position: absolute; bottom: 70px; right: 480px;}
+        img:nth-child(6){width: 190px ; height: 190px; border: 8px solid purple; position: absolute; bottom: 70px; right: 200px;}
+        /** {background:#000000;}*/
+        *{background: burlywood;}
+    </style>
+
+</head>
+<body>
+{% if upload.photo %}
+<h2>분류된 견종 : {{pred}}</h2>
+<!--<h2>업로드된 사진의 제목 : {{ upload.title }}</h2>-->
+<!--<p>업로드된 사진의 내용  : {{ upload.content }}</p>-->
+<!--<p>path :{{ upload.photo.path }}</p>-->
+<!--<p>url : {{ upload.photo.url }}</p>-->
+<!--<img src = "{{ upload.photo.url }}"  alt="" class="img-fluid" />-->
+
+<!--<div style="position:absolute; width:200px; height:200px; top:100px; left:50px;">-->
+<!--<img src="/static/image/lostdog/{{first_match}}" style = "width:331px; height:331px;">-->
+<!--<div style="position:absolute; width:200px; height:200px; top:100px; left:200px;">-->
+<!--<img src="{{ upload.photo.url }}" style = "width:331px; height:331px;">-->
+
+<!--<div style="position:absolute; width:200px; height:200px; top:0px; left:331px;">-->
+<!--<img src="/static/image/lostdog/{{first_match}}" style = "width:331px; height:331px;">-->
+
+<!--<div style="position:absolute; width:200px; height:200px; top:400px; left:-331px;">-->
+<!--<img src="/static/image/lostdog/{{second_match}}" style = "width:331px; height:331px;">-->
+
+<!--<div style="position:absolute; width:200px; height:200px; top:0px; left:375px;">-->
+<!--<img src="/static/image/lostdog/{{third_match}}" style = "width:331px; height:331px;">-->
+
+<!--<div style="position:absolute; width:200px; height:200px; top:0px; left:375px;">-->
+<!--<img src="/static/image/lostdog/{{fourth_match}}" style = "width:331px; height:331px;">-->
+
+<!--<div style="position:absolute; width:200px; height:200px; top:0px; left:375px;">-->
+<!--<img src="/static/image/lostdog/{{fifth_match}}" style = "width:331px; height:331px;">-->
+
+
+    <div>
+        <img src="{{ upload.photo.url }}" alt="">
+        <img src="/dog_breed/{{pred}}/{{first_match}}" alt="">
+        <img src="/dog_breed/{{pred}}/{{second_match}}" alt="">
+        <img src="/dog_breed/{{pred}}/{{third_match}}" alt="">
+        <img src="/dog_breed/{{pred}}/{{fourth_match}}" alt="">
+        <img src="/dog_breed/{{pred}}/{{fifth_match}}" alt="">
+    </div>
+
+
+
+
+<!--<img src="/static/image/lostdog/{{first_match}}"  alt="" class="img-fluid" />-->
+<!--<img src="/static/image/lostdog/{{second_match}}"  alt="" class="img-fluid" />-->
+<p> result : {{acc_dic}}</p><br>
+<p> result2 : {{file_name1}}</p><br>
+<p> result2 : {{s}}</p><br>
+<!--<p>first_match :"/static/image/lostdog/{{first_match}}" </p>-->
+<!--<p> result2 : {{pred}}</p><br>-->
+
+{% else %}
+<h2>업로드하려는 사진파일과 정보를 입력하세요</h2>
+<form method="post"  action="{% url 'upload' %}" enctype="multipart/form-data">
+	{% csrf_token %}
+    <p>사진제목 : <input type="text" name = "title"></p>
+    <p>사진내용 : <textarea name = "content" rows="4" cols="30"></textarea></p>
+    업로드할 사진파일 선택 : <input type="file" name="photo"><br>
+    <input type="submit" value="전송">
+</form>
+{% endif %}
+</body>
+</html>

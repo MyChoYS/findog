@@ -1,11 +1,11 @@
 from django.shortcuts import render
-from findog.models import missingdog
+from findog.models import *
 
 
 def missingboard(request) :
-    lostdoglist = missingdog.objects.all()
+    missingdoglist = missingdog.objects.all()
     context = {
-        'lostdoglist': lostdoglist
+        'missingdoglist': missingdoglist
     }
     return render(request, 'missing/missingboard.html', context);
 

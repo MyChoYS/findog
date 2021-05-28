@@ -27,8 +27,6 @@ class missingdog(models.Model): #유기견리스트
     dogbreed = models.ForeignKey(dogbreed,on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     findplace = models.TextField()
-    lat = models.CharField(max_length=50)
-    lon = models.CharField(max_length=50)
     cellphone = models.CharField(max_length=50)
     explanation = models.TextField()
     img = models.ImageField(blank=True, upload_to="photo_%Y_%m_%d")
