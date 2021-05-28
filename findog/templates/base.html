@@ -1,14 +1,20 @@
 {% load static %}
+<style>
+    #container {
+    text-align: center;
+    }
+
+</style>
 <script>
 window.onload = function () {
     var dataPoints = [
-			    { x : new Date(2017,6,24) , y: {{ lostdogcount }}},
-			    { y: 414 , x: new Date(2017,6,25)},
-			    { y: 520, x: new Date(2017,6,26)  ,indexLabel: "\u2191 highest",markerColor: "red", markerType: "triangle" },
-			    { y: 460 , x: new Date(2017,6,27) },
-			    { y: 450  , x: new Date(2017,6,28)},
-			    { y: 500 , x: new Date(2017,6,29)},
-			    { y: 410, x: new Date(2017,6,30) , indexLabel: "\u2193 lowest",markerColor: "DarkSlateGrey", markerType: "cross" },
+			    { x : new Date(2021,5,23) , y: {{ lostdogcount }}, indexLabel: "\u2193 lowest",markerColor: "DarkSlateGrey", markerType: "cross" },
+			    { y: 414 , x: new Date(2021,5,24)},
+			    { y: 520, x: new Date(2021,5,25)  ,indexLabel: "\u2191 highest",markerColor: "red", markerType: "triangle" },
+			    { y: 460 , x: new Date(2021,5,26) },
+			    { y: 450  , x: new Date(2021,5,27)},
+			    { y: 500 , x: new Date(2021,5,28)},
+			    { y: 410, x: new Date(2021,5,29) ,  },
 
 	];
     var chart = new CanvasJS.Chart("chartContainer", {
@@ -25,6 +31,46 @@ window.onload = function () {
     });
 
     chart.render();
+
+
+    var dataPoints2 = [
+			    { x : new Date(2021,5,23) , y: {{ lostdogcount }}},
+			    { y: 414 , x: new Date(2021,5,24)},
+			    { y: 520, x: new Date(2021,5,25)  ,indexLabel: "\u2191 highest",markerColor: "red", markerType: "triangle" },
+			    { y: 460 , x: new Date(2021,5,26) },
+			    { y: 450  , x: new Date(2021,5,27)},
+			    { y: 500 , x: new Date(2021,5,28)},
+			    { y: 410, x: new Date(2021,5,29) , indexLabel: "\u2193 lowest",markerColor: "DarkSlateGrey", markerType: "cross" },
+
+	];
+
+    var chart2 = new CanvasJS.Chart("chartContainer2", {
+	   animationEnabled: true,
+	theme: "light2", // "light1", "light2", "dark1", "dark2"
+	title:{
+		text: "Top Oil Reserves"
+	},
+	axisY: {
+		title: "유기견 수(마리)"
+	},
+	data: [{
+		type: "column",
+		showInLegend: false,
+		legendText: "MMbbl = one million barrels",
+		dataPoints: [
+			{ y: 300878, label: "Venezuela" },
+			{ y: 266455,  label: "Saudi" },
+			{ y: 169709,  label: "Canada" },
+			{ y: 158400,  label: "Iran" },
+			{ y: 142503,  label: "Iraq" },
+			{ y: 101500, label: "Kuwait" },
+			{ y: 97800,  label: "UAE" },
+			{ y: 80000,  label: "Russia" }
+		]
+	}]
+    });
+
+    chart2.render();
 
 
 }
@@ -56,7 +102,11 @@ window.onload = function () {
             {% endif %}
         </nav>
     </div>
-<div id="chartContainer" style="height: 370px; width: 700px;"></div>
+    <div id = 'container'>
+        <div class="one" id="chartContainer" style="height: 370px; float: left; width: 50%;"></div>
+        <div class="two" id="chartContainer2" style="height: 370px; float: left; width: 50%;"></div>
+    </div>
+
 <!-- <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script> -->
 <script src="/static/canvasjs.min.js"></script>
 
