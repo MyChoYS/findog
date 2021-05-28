@@ -154,7 +154,6 @@ def dogcenters(request) :
 def missingdog_upload(request) :
     context = None
     if request.method == 'POST' :
-        asd = request.FILES['photo']
         #request.FILES['photo'] #분류 결과를 낸 후에
         #dogbreeds = 말티즈 #변수명에 담아서 밑에 upload의 dogbreed_id = 변수명 으로 저장!
         upload = missingdog(member_id_id=request.session['member_id'], dogbreed_id='Shih-Tzu',
