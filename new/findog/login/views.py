@@ -77,7 +77,7 @@ def logout(request) :
     if 'member_id' in request.session :
         if request.session['member_name'] :
             del request.session['member_name']
-    return redirect('base')
+    return redirect('login')
 
 
 def androidlogin(request) :
