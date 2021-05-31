@@ -2,7 +2,7 @@
 <html lang="ko-kr">
 <head>
     <meta charset="UTF-8">
-    <title>보호중입니다</title>
+    <title>우리개 실종신고</title>
 </head>
 <body>
 {% if upload.img %}
@@ -10,15 +10,15 @@
 <p>업로드된 사진의 내용  : {{ upload.explanation }}</p>
 <p>path :{{ upload.img.path }}</p>
 <p>url : {{ upload.img.url }}</p>
-<p>발견시간 : {{ upload.findtime }}</p>
+<p>url : {{ upload.findtime }}</p>
 <img src='{{ upload.img.url }}' width="500">
 
 {% else %}
 <h2>업로드하려는 사진파일과 정보를 입력하세요</h2>
-<form method="post"  action="{% url 'upload' %}" enctype="multipart/form-data">
+<form method="post"  action="{% url 'uploads' %}" enctype="multipart/form-data">
 	{% csrf_token %}
     <p>제목 : <input type="text" name = "title"></p>
-    <p>발견장소 : <input type="text" name = "findplace"></p>
+    <p>잃어버린 장소 : <input type="text" name = "findplace"></p>
     <p>내용 : <textarea name = "content" rows="4" cols="30"></textarea></p>
     <p>연락처 : <input type="text" name = "cellphone"></p>
     업로드할 사진파일 선택 : <input type="file" name="photo"><br>

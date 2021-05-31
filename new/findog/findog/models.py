@@ -47,3 +47,14 @@ class UploadModel(models.Model):
     title = models.CharField(max_length=100)
     content = models.TextField()
     photo = models.ImageField(blank=True, upload_to="photo_%Y_%m_%d") #폴더 생성만, 이미지명은 따로 찾아야함
+
+class findingdog(models.Model): #실종신고
+    member_id = models.ForeignKey(member, on_delete=models.CASCADE)
+    dogbreed = models.ForeignKey(dogbreed,on_delete=models.CASCADE)
+    lostplace = models.CharField(max_length=100)
+    losttime = models.CharField(max_length=100)
+    title = models.CharField(max_length=20)
+    explanation = models.TextField()
+    cellphone =  models.CharField(max_length=20)
+    img = models.ImageField(blank=True, upload_to="photo_%Y_%m_%d")
+    delete = models.BooleanField(default=False)#삭제여부

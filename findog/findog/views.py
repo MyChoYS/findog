@@ -162,7 +162,7 @@ def missingdog_upload(request) :
                             img=request.FILES['photo'],
                             findtime=datetime.now().strftime('%Y%m%d%H%H%S'))
         upload.save()
-        context = {"upload" : upload,'asd':asd }
+        context = {"upload" : upload, }
     return render(request, "fileupload.html", context)
 
 
