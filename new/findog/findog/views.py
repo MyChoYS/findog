@@ -28,10 +28,15 @@ from datetime import datetime
 
 def base(request) :
     lostdoglist = missingdog.objects.all()
+    lastdog = lostdoglist.last()
+    now = datetime.now()
+    lostdogcount = lostdoglist.count()
     context = {
-        'lostdoglist' : lostdoglist
+        'lostdoglist': lostdoglist, 'lastdog': lastdog, 'now': now, 'lostdogcount': lostdogcount
     }
-    return render(request, 'main.html', context);
+
+
+    return render(request, 'main/main.html', context);
 
 
 

@@ -1,4 +1,78 @@
 {% load static %}
+<style>
+
+    #container {
+    text-align: center;
+    }
+
+</style>
+
+<script>
+window.onload = function () {
+    var dataPoints = [
+			    { x : new Date(2021,5,23) , y: 500, },
+			    { y: 414 , x: new Date(2021,5,24)},
+			    { y: 520, x: new Date(2021,5,25)  ,indexLabel: "\u2191 highest",markerColor: "red", markerType: "triangle" },
+			    { y: 460 , x: new Date(2021,5,26) },
+			    { y: 450  , x: new Date(2021,5,27)},
+			    { y: 500 , x: new Date(2021,5,28)},
+			    { y: 410, x: new Date(2021,5,29), indexLabel: "\u2193 lowest",markerColor: "DarkSlateGrey", markerType: "cross" },
+
+	];
+    var chart = new CanvasJS.Chart("chartContainer", {
+	    animationEnabled: true,
+	    theme: "light2",
+	    title:{
+		    text: "금주 유기견 현황"
+	    },
+	    data: [{
+		    type: "line",
+      	    indexLabelFontSize: 16,
+		    dataPoints: dataPoints,
+	    }]
+    });
+
+    chart.render();
+
+    var chart2 = new CanvasJS.Chart("chartContainer2", {
+	   animationEnabled: true,
+	theme: "light2", // "light1", "light2", "dark1", "dark2"
+	title:{
+		text: "슈퍼스타 유기견 TOP 8 "
+	},
+	axisY: {
+		title: "유기견 수(마리)"
+	},
+	data: [{
+		type: "column",
+		showInLegend: false,
+		legendText: "MMbbl = one million barrels",
+		dataPoints: [
+			{ y: 87, label: "beagle" },
+			{ y: 75,  label: "boxer" },
+			{ y: 66,  label: "pug" },
+			{ y: 60,  label: "samoyed" },
+			{ y: 45,  label: "Shih-Thu" },
+			{ y: 20, label: "toy_poddle" },
+			{ y: 14,  label: "pekinese" },
+			{ y: 6,  label: "pomeranian" }
+		]
+	}]
+    });
+
+    chart2.render();
+
+
+}
+
+
+
+</script>
+
+
+
+
+
 
 <body>
     <div>
@@ -22,6 +96,13 @@
         </nav>
     </div>
 
+    <div id = 'container'>
+        <div class="one" id="chartContainer" style="height: 370px; float: left; width: 50%;"></div>
+        <div class="two" id="chartContainer2" style="height: 370px; float: left; width: 50%;"></div>
+    </div>
+
+<!-- <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script> -->
+<script src="/static/canvasjs.min.js"></script>
 
     <div class="contents">
 
